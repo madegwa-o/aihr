@@ -1,142 +1,604 @@
 /* Docs.module.css */
 
-:root {
-    --primary-gradient: linear-gradient(135deg, #635bff 0%, #524bb5 100%);
-    --primary-gradient-hover: linear-gradient(135deg, #8b9cf9, #00d9ff);
+.wrapper {
+    min-height: 100vh;
+    background: var(--background);
+    position: relative;
+    overflow-x: hidden;
 }
 
-.bodyDark {
-    background-image: radial-gradient(circle at 1px 1px, rgba(99, 91, 255, 0.1) 1px, transparent 0);
-    background-size: 20px 20px;
-    min-height: 100vh;
+.wrapper::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-background);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 60px 40px 40px;
+    padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
     line-height: 1.6;
-    color: #ffffff;
-    background: #0a0e27;
+    color: var(--text-primary);
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
 }
 
 .header {
-    border-bottom: 2px solid #1a1f36;
-    padding-bottom: 30px;
-    margin-bottom: 40px;
+    background: var(--header-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 60px 40px 40px;
+    margin-top: 50px;
+    margin-bottom: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.headerContent {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .title {
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: #ffffff;
-    margin: 0 0 20px 0;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 16px 0;
     letter-spacing: -0.02em;
+    background: var(--gradient-background);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin: 0 0 32px 0;
+    font-weight: 400;
 }
 
 .backButton {
-    background: var(--primary-gradient);
-    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--button-primary-bg);
+    color: var(--button-primary-text);
     border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 14px rgba(99, 91, 255, 0.25);
+    transition: all 0.3s ease;
+    text-decoration: none;
 }
 
-.backButton:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(99, 91, 255, 0.35);
-    background: var(--primary-gradient-hover);
+.backButton:active {
+    transform: translateY(0);
+}
+
+.backIcon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.backButton:hover .backIcon {
+    transform: translateX(-2px);
+}
+
+.content {
+    padding: 0 40px 60px;
 }
 
 .section {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .h1 {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 40px 0;
+    padding-bottom: 20px;
+}
+
+.sectionIcon {
     font-size: 2rem;
-    font-weight: 400;
-    color: #ffffff;
-    margin: 0 0 30px 0;
-    border-left: 4px solid #8b9cf9;
-    padding-left: 20px;
+}
+
+.featureCard {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+    transform: translateY(-2px);
 }
 
 .h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 32px 0;
+}
+
+.featureIcon {
     font-size: 1.5rem;
-    font-weight: 500;
-    color: #8892b0;
-    margin: 40px 0 20px 0;
+}
+
+.userTypeSection {
+    margin-bottom: 40px;
+}
+
+.userTypeSection:last-child {
+    margin-bottom: 0;
 }
 
 .h3 {
-    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.5rem;
     font-weight: 600;
-    color: #ffffff;
-    margin: 30px 0 15px 0;
-    background: #0f1629;
-    padding: 12px 16px;
-    border-radius: 6px;
-    border: 1px solid #1a1f36;
+    color: var(--text-primary);
+    margin: 0 0 24px 0;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
 }
 
-.ol,
-.nestedOl {
+.userIcon {
+    font-size: 1.25rem;
+}
+
+.ol, .nestedOl {
     list-style: none;
     padding-left: 0;
     counter-reset: item;
+    margin: 0;
 }
 
 .nestedOl {
     padding-left: 20px;
-    margin-top: 8px;
+    margin-top: 16px;
     counter-reset: subitem;
 }
 
-.li,
-.nestedLi {
+.li, .nestedLi {
     position: relative;
-    font-size: 15px;
-    color: #8892b0;
-    margin: 12px 0;
-    padding-left: 40px;
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin: 20px 0;
+    padding-left: 50px;
     counter-increment: item;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
 }
 
 .nestedLi {
-    font-size: 14px;
-    border-left: 2px solid #1a1f36;
-    margin-left: 10px;
-    padding: 6px 0 6px 30px;
+    font-size: 15px;
+    margin: 12px 0 12px 20px;
+    padding: 8px 0 8px 40px;
     counter-increment: subitem;
+    background: rgba(99, 91, 255, 0.02);
+    border-radius: 0 8px 8px 0;
 }
 
-.li span,
-.nestedLi span {
+.li span, .nestedLi span {
     position: absolute;
     left: 0;
-    top: 8px;
+    top: 0;
     border-radius: 50%;
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
-    background: #8b9cf9;
     color: white;
+    flex-shrink: 0;
+    background: var(--primary-color);
 }
 
 .nestedLi span {
-    top: 6px;
-    width: 20px;
-    height: 20px;
-    font-size: 11px;
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+    background: var(--accent-color);
+}
+
+.stepContent {
+    flex: 1;
+}
+
+.stepContent strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 17px;
+    margin-bottom: 4px;
+}
+
+.stepContent p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.additionalFeatures {
+    margin-top: 60px;
+}
+
+.featureGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.featureItem {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.featureItem:hover {
+    transform: translateY(-4px);
+}
+
+.featureItemIcon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.featureItem h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 12px 0;
+}
+
+.featureItem p {
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+
+    .header {
+        padding: 30px 20px 25px;
+        margin-top: 20px;
+    }
+
+    .content {
+        padding: 0 20px 40px;
+    }
+
+    .title {
+        font-size: 2.25rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        margin: 0 0 24px 0;
+    }
+
+    .h1 {
+        font-size: 1.75rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+
+    .h2 {
+        font-size: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 24px;
+    }
+
+    .h3 {
+        font-size: 1.125rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 12px 16px;
+        margin-bottom: 20px;
+    }
+
+    .featureCard {
+        padding: 20px;
+        border-radius: 16px;
+        margin-bottom: 30px;
+    }
+
+    .userTypeSection {
+        margin-bottom: 30px;
+    }
+
+    /* Fixed mobile list styles */
+    .li {
+        padding-left: 45px;
+        font-size: 14px;
+        margin: 16px 0;
+        gap: 12px;
+        line-height: 1.4;
+    }
+
+    .nestedLi {
+        padding: 6px 0 6px 35px;
+        font-size: 13px;
+        margin: 10px 0 10px 15px;
+        line-height: 1.4;
+    }
+
+    .li span, .nestedLi span {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        position: absolute;
+        left: 0;
+        top: 2px;
+    }
+
+    .nestedLi span {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+        top: 4px;
+    }
+
+    .stepContent strong {
+        font-size: 15px;
+        margin-bottom: 3px;
+    }
+
+    .stepContent p {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .nestedOl {
+        padding-left: 15px;
+        margin-top: 12px;
+    }
+
+    .featureGrid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .backButton {
+        padding: 10px 18px;
+        font-size: 13px;
+        border-radius: 10px;
+    }
+
+    .section {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 25px 15px 20px;
+        margin-top: 15px;
+    }
+
+    .content {
+        padding: 0 15px 30px;
+    }
+
+    .title {
+        font-size: 1.875rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .h1 {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+    }
+
+    .h2 {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+    }
+
+    .h3 {
+        font-size: 1rem;
+        padding: 10px 12px;
+        margin-bottom: 16px;
+    }
+
+    .featureCard {
+        padding: 16px;
+        border-radius: 12px;
+        margin-bottom: 25px;
+    }
+
+    .userTypeSection {
+        margin-bottom: 25px;
+    }
+
+    /* Extra small mobile fixes */
+    .li {
+        padding-left: 40px;
+        font-size: 13px;
+        margin: 14px 0;
+        gap: 10px;
+    }
+
+    .nestedLi {
+        padding: 5px 0 5px 32px;
+        font-size: 12px;
+        margin: 8px 0 8px 12px;
+    }
+
+    .li span, .nestedLi span {
+        width: 26px;
+        height: 26px;
+        font-size: 11px;
+        top: 1px;
+    }
+
+    .nestedLi span {
+        width: 22px;
+        height: 22px;
+        font-size: 9px;
+        top: 3px;
+    }
+
+    .stepContent strong {
+        font-size: 14px;
+        margin-bottom: 2px;
+    }
+
+    .stepContent p {
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    .nestedOl {
+        padding-left: 12px;
+        margin-top: 10px;
+    }
+
+    .backButton {
+        padding: 8px 16px;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+
+    .backIcon {
+        font-size: 16px;
+    }
+
+    .sectionIcon {
+        font-size: 1.5rem;
+    }
+
+    .featureIcon {
+        font-size: 1.25rem;
+    }
+
+    .userIcon {
+        font-size: 1rem;
+    }
+
+    .section {
+        margin-bottom: 30px;
+    }
+
+    .featureItem {
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    .featureItemIcon {
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+
+    .featureItem h4 {
+        font-size: 1.125rem;
+        margin-bottom: 8px;
+    }
+
+    .featureItem p {
+        font-size: 13px;
+    }
+}
+
+/* Ultra small devices (landscape phones) */
+@media (max-width: 360px) {
+    .title {
+        font-size: 1.625rem;
+    }
+
+    .h1 {
+        font-size: 1.375rem;
+    }
+
+    .h2 {
+        font-size: 1.125rem;
+    }
+
+    .h3 {
+        font-size: 0.9rem;
+    }
+
+    .li {
+        padding-left: 36px;
+        font-size: 12px;
+    }
+
+    .nestedLi {
+        padding: 4px 0 4px 28px;
+        font-size: 11px;
+        margin: 6px 0 6px 10px;
+    }
+
+    .li span, .nestedLi span {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+    }
+
+    .nestedLi span {
+        width: 20px;
+        height: 20px;
+        font-size: 8px;
+    }
+
+    .stepContent strong {
+        font-size: 13px;
+    }
+
+    .stepContent p {
+        font-size: 11px;
+    }
+
+    .featureCard {
+        padding: 14px;
+    }
 }

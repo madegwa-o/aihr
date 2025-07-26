@@ -5,6 +5,7 @@ import BaseLayout from './BaseLayout.tsx'
 import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 import Docs from "./pages/docs/docs.tsx";
 import Homepage from "./pages/homepage/Homepage.tsx";
+import ThemeContextProvider from "./hooks/themeProvider.tsx";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,8 @@ const router = createBrowserRouter([
 ])
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router}/>
+      <ThemeContextProvider>
+          <RouterProvider router={router}/>
+      </ThemeContextProvider>
   </StrictMode>,
 )
