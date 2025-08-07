@@ -27,7 +27,7 @@ const ScreenResume: FC = (): JSX.Element => {
         try{
             setIsloading(true);
 
-            const response = await axios.post(`${BaseUrl}/upload`, {previewTranscript})
+            const response = await axios.post(`${BaseUrl}/ai/upload`, {previewTranscript})
 
             console.log(response)
             await new Promise((resolve) => setTimeout(resolve, 1000));
