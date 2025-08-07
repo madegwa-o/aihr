@@ -13,6 +13,7 @@ export default function Header() {
 
     const menuItems = [
         { name: 'Home', path: '/' },
+        { name: 'Screen', path: '/screen-resume' },
         { name: 'Docs', path: '/docs' }
     ];
 

@@ -6,6 +6,7 @@ import {createBrowserRouter, Navigate, RouterProvider} from "react-router-dom";
 import Docs from "./pages/docs/docs.tsx";
 import Homepage from "./pages/homepage/Homepage.tsx";
 import ThemeContextProvider from "./hooks/themeProvider.tsx";
+import ScreenResume from "./pages/screenResume/ScreenResume.tsx";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
                 path: "/docs",
                 element: <Docs />
             },
+            {
+                path: "/screen-resume",
+                element: <ScreenResume />
+            }
         ]
     },
 
