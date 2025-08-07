@@ -9,7 +9,7 @@ export default function Homepage() {
     const clients = [
         'Safaricom', 'Equity Bank', 'KCB Group', 'Nation Media Group',
         'Jumia', 'Twiga Foods', 'Kenya Airways', 'Bamboo',
-        'NCBA Bank', 'KenGen', 'mTek Services', 'Cellulant'
+        'NCBA Bank', 'KenGen', 'mTek Services','PesaQuick', 'Cellulant'
     ];
 
     useEffect(() => {
